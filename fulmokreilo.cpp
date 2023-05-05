@@ -59,8 +59,15 @@ int main(int argc, char** argv) {
         } else if (c == '-') {
             angulo -= dis(gen);
         }
-    }
-
+    };
+    
+    Image bildo2(bildo);
+    //bildo2.channel(AlphaChannel);
+    bildo2.transparent(Color("black"));
+    bildo2.blur(0, 5);
+    //bildo2.level(QuantumRange * 0.5, QuantumRange, 1.0);
+    bildo.composite(bildo2, 0, 0, DstOverCompositeOp);
+    bildo.flop();
     bildo.write(dosiernomo);
 
     return 0;

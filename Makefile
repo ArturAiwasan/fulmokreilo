@@ -1,12 +1,5 @@
-ifeq ($(OS),Windows)
-    CXX = x86_64-w64-mingw32-g++
-    LDFLAGS = -I/usr/x86_64-w64-mingw32/include/GraphicsMagick -L/usr/x86_64-w64-mingw32/lib $(shell /usr/x86_64-w64-mingw32/bin/GraphicsMagick++-config --cxxflags --libs)
-else
-    CXX = g++
-    LDFLAGS = -I/usr/include/GraphicsMagick -L/usr/lib $(shell GraphicsMagick++-config --cxxflags --libs)
-endif
-
-CXXFLAGS = -Wall
+CXX = g++
+LDFLAGS = -Wall -Wcpp -I/usr/local/include/ImageMagick-7 -L/usr/local/lib -lMagick++-7.Q16 -lMagickWand-7.Q16 -lMagickCore-7.Q16
 
 SOURCES = fulmokreilo.cpp
 

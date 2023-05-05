@@ -24,7 +24,7 @@ std::string fKreiFulmon(int profundeco) { //Создание молнии
 
 int main(int argc, char** argv) {
     if (argc < 2) {
-        std::cout << "Uzado: " << argv[0] << " <dosiernomo> <pasxo>" << std::endl;
+        std::cout << "Uzado: " << argv[0] << " <dosiernomo> <pasxo> <lumo>" << std::endl;
         return 1;
     }
     std::string dosiernomo = argv[1];
@@ -62,11 +62,9 @@ int main(int argc, char** argv) {
     };
     
     Image bildo2(bildo);
-    //bildo2.channel(AlphaChannel);
-    bildo2.transparent(Color("black"));
-    bildo2.blur(0, 5);
-    //bildo2.level(QuantumRange * 0.5, QuantumRange, 1.0);
-    bildo.composite(bildo2, 0, 0, DstOverCompositeOp);
+    bildo2.opaque(Color("transparent"),Color("black"));
+    bildo2.blur(0, std::stoi(argv[3]));
+    bildo.composite(bildo2, 0, 0, OverCompositeOp);
     bildo.flop();
     bildo.write(dosiernomo);
 

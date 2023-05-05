@@ -3,7 +3,7 @@
 
 # Использование
 
-`fulmokreilo kek.png <глубина>`  
+`fulmokreilo kek.png <глубина> <размытие>`  
 
 # Сборка
 `make`  
